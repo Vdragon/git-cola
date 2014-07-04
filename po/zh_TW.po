@@ -1582,7 +1582,7 @@ msgstr "將所有被修改的檔案移入版本提交準備區域"
 
 #: cola/widgets/main.py:155
 msgid "Stage All Untracked"
-msgstr "將所有尚未追蹤其版本的項目移動到版本提交準備區域"
+msgstr "將所有尚未追蹤其版本的項目移入版本提交準備區域"
 
 #: cola/widgets/main.py:160
 msgid "Apply Patches..."
