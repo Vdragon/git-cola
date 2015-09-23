@@ -12,7 +12,7 @@ before_install:
   - sudo apt-get update
   
   # Create a virtual X screen so that some tests can be run
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1024x768x24"
+  - "/sbin/start-stop-daemon --start --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1024x768x24"
   
 # command to install dependencies, git and python are pre-installed in build box thus are ignored
 install:
@@ -43,4 +43,5 @@ install:
 script:
   - make all
   - make doc
-  - env DISPLAY=:0 make test # Disabled due to issue #404
+#  - env DISPLAY=:0 make test # Disabled due to issue #404
+  - nosetests --with-doctest --exclude=sphinxtogithub --verbose
