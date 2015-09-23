@@ -10,7 +10,10 @@ python:
 before_install:
   # Update APT cache data since it may outdated
   - sudo apt-get update
-
+  
+  # Create a virtual X screen so that some tests can be run
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1024x768x24"
+  
 # command to install dependencies, git and python are pre-installed in build box thus are ignored
 install:
   # according to Debian control file from Ubuntu 12.04
@@ -40,4 +43,4 @@ install:
 script:
   - make all
   - make doc
-#  - make test # Disabled due to issue #404
+  - env DISPLAY=:0 make test # Disabled due to issue #404
