@@ -44,4 +44,4 @@ script:
   - make all
   - make doc
 #  - env DISPLAY=:0 make test # Disabled due to issue #404
-  - nosetests --with-doctest --exclude=sphinxtogithub --verbose
+  - env DISPLAY=:99 nosetests --with-doctest --exclude=sphinxtogithub --verbose
